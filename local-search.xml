@@ -17,11 +17,11 @@
   
   
   <entry>
-    <title></title>
+    <title>Netty</title>
     <link href="/2021/09/26/Netty%E7%9F%A5%E6%A0%B9%E7%9F%A5%E5%BA%95/"/>
     <url>/2021/09/26/Netty%E7%9F%A5%E6%A0%B9%E7%9F%A5%E5%BA%95/</url>
     
-    <content type="html"><![CDATA[<h1 id="Netty知根知底"><a href="#Netty知根知底" class="headerlink" title="Netty知根知底"></a>Netty知根知底</h1><p>Netty是网络编程基本框架，Java开发流行的Redis缓存的主从复制，分布式的RPC的底层通讯都使用Netty网络通讯。</p><h2 id="NIO是个什么玩意"><a href="#NIO是个什么玩意" class="headerlink" title="NIO是个什么玩意"></a>NIO是个什么玩意</h2><p>NIO(non-blocking-io，非阻塞io)</p><p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163226750.png" alt="image-20210925163226750"></p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163239860.png" alt="image-20210925163239860" style="zoom:200%;" /><p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163521053.png" alt="image-20210925163521053"></p><p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163857831.png" alt="image-20210925163857831"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Netty知根知底"><a href="#Netty知根知底" class="headerlink" title="Netty知根知底"></a>Netty知根知底</h1><h2 id="学前问题"><a href="#学前问题" class="headerlink" title="学前问题"></a>学前问题</h2><p>netty线程模型</p><p>NIO为什么这么快，是否高效，和IO的区别</p><p>NIO和BIO和IO</p><p>NIO原理</p><p>java里面哪些用到了NIO</p><p>TCP粘包拆包</p><p>Netty是网络编程基本框架，Java开发流行的Redis缓存的主从复制，分布式的RPC的底层通讯都使用Netty网络通讯。</p><h2 id="NIO是个什么玩意"><a href="#NIO是个什么玩意" class="headerlink" title="NIO是个什么玩意"></a>NIO是个什么玩意</h2><p>NIO(non-blocking-io，非阻塞io)</p><p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163226750.png" alt="image-20210925163226750"></p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163239860.png" alt="image-20210925163239860" style="zoom:200%;" /><p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163521053.png" alt="image-20210925163521053"></p><p><img src="C:\Users\lunfee\AppData\Roaming\Typora\typora-user-images\image-20210925163857831.png" alt="image-20210925163857831"></p>]]></content>
     
     
     
