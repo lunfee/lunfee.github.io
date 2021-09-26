@@ -31,19 +31,6 @@
   
   <entry>
     <title></title>
-    <link href="/2021/09/26/Mybatis%E4%B8%8EJDBC/"/>
-    <url>/2021/09/26/Mybatis%E4%B8%8EJDBC/</url>
-    
-    <content type="html"><![CDATA[<p>title: Hello World</p><h2 id="Mybatis与JDBC"><a href="#Mybatis与JDBC" class="headerlink" title="Mybatis与JDBC"></a>Mybatis与JDBC</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p>JDBC，Java Database Connectivity，舰名思意，Java数据库连接，一般操作的步骤如下：</p><p>1，根据四要素（Driver-Class，url，username，password）获得连接，</p><p>2，编写sql语句，</p><p>3，获取preparedStatement，预编译sql语句，</p><p>4，获取并处理结果集</p><p>5，关闭资源</p><p>使用第三方数据库连接池时需要配置dataSource。</p><h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><p>Mybatis算是一个ORM框架，说到底内部也是封装了JDBC的，但是简化了很多操作，它的操作步骤：</p><p>1，sqlSessionFactory获取一个sqlSession,（session.getMapper）</p><p>2，编写@Mapper的mapper接口（DAO）</p><p>3，编写xml映射文件（包括sql语句，返回封装的Bean）          —————-与数据库交互</p><p>4，编写@Service的service业务逻辑代码</p><h3 id="JDBC与Mybatis比有哪些局限性呢"><a href="#JDBC与Mybatis比有哪些局限性呢" class="headerlink" title="JDBC与Mybatis比有哪些局限性呢"></a>JDBC与Mybatis比有哪些局限性呢</h3><p>1.数据库连接池（减少数据库关闭开启时数据库的资源浪费）：</p><p>2.SQL配置文件（减少硬编码）：原生JDBC直接在java中写sql语句，及其不好维护。</p><p>3.动态SQL语句（只专注写sql，各干各的事，专一）</p><p>4.映射（resultset直接转为java对象）：不用再操作底层的ResultSet。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
     <link href="/2021/09/26/%E6%9D%82%E8%B0%88/"/>
     <url>/2021/09/26/%E6%9D%82%E8%B0%88/</url>
     
@@ -165,6 +152,19 @@
     <url>/2021/09/26/hello-world/</url>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mybatis</title>
+    <link href="/2020/09/23/Mybatis%E4%B8%8EJDBC/"/>
+    <url>/2020/09/23/Mybatis%E4%B8%8EJDBC/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Mybatis与JDBC"><a href="#Mybatis与JDBC" class="headerlink" title="Mybatis与JDBC"></a>Mybatis与JDBC</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p>JDBC，Java Database Connectivity，舰名思意，Java数据库连接，一般操作的步骤如下：</p><p>1，根据四要素（Driver-Class，url，username，password）获得连接，</p><p>2，编写sql语句，</p><p>3，获取preparedStatement，预编译sql语句，</p><p>4，获取并处理结果集</p><p>5，关闭资源</p><p>使用第三方数据库连接池时需要配置dataSource。</p><h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><p>Mybatis算是一个ORM框架，说到底内部也是封装了JDBC的，但是简化了很多操作，它的操作步骤：</p><p>1，sqlSessionFactory获取一个sqlSession,（session.getMapper）</p><p>2，编写@Mapper的mapper接口（DAO）</p><p>3，编写xml映射文件（包括sql语句，返回封装的Bean）          —————-与数据库交互</p><p>4，编写@Service的service业务逻辑代码</p><h3 id="JDBC与Mybatis比有哪些局限性呢"><a href="#JDBC与Mybatis比有哪些局限性呢" class="headerlink" title="JDBC与Mybatis比有哪些局限性呢"></a>JDBC与Mybatis比有哪些局限性呢</h3><p>1.数据库连接池（减少数据库关闭开启时数据库的资源浪费）：</p><p>2.SQL配置文件（减少硬编码）：原生JDBC直接在java中写sql语句，及其不好维护。</p><p>3.动态SQL语句（只专注写sql，各干各的事，专一）</p><p>4.映射（resultset直接转为java对象）：不用再操作底层的ResultSet。</p>]]></content>
     
     
     
