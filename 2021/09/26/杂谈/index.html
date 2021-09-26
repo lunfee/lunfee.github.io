@@ -16,19 +16,19 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="杂谈关于Spring“自动”这件事下面说的三种时期亦或是三种方式，知识入口不同而已，容器底层启动的过程是一样的，方式有早期和主流之分，但在开发中多是灵活搭配的，例如早期的代码融入新技术实现的代码（Import）。 1.XML配置时期最开始使用Spring的时候，也是早期主流的使用方式，我们需要在beans.xml中创建标签，并在子标签中对相应属性进行赋值，常用的方式有： 传值三种方式：按参数索引，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/09/26/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/09/26/%E6%9D%82%E8%B0%88/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="杂谈关于Spring“自动”这件事下面说的三种时期亦或是三种方式，知识入口不同而已，容器底层启动的过程是一样的，方式有早期和主流之分，但在开发中多是灵活搭配的，例如早期的代码融入新技术实现的代码（Import）。 1.XML配置时期最开始使用Spring的时候，也是早期主流的使用方式，我们需要在beans.xml中创建标签，并在子标签中对相应属性进行赋值，常用的方式有： 传值三种方式：按参数索引，">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-26T01:13:25.190Z">
-<meta property="article:modified_time" content="2021-09-26T05:51:08.340Z">
+<meta property="article:published_time" content="2021-09-26T05:50:07.551Z">
+<meta property="article:modified_time" content="2021-09-15T11:38:24.054Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>Hello World - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -174,7 +174,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -184,8 +184,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-26 09:13" pubdate>
-        September 26, 2021 am
+      <time datetime="2021-09-26 13:50" pubdate>
+        September 26, 2021 pm
       </time>
     </span>
   
@@ -195,7 +195,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      367 字
+      1.4k 字
     </span>
   
 
@@ -204,7 +204,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      4 分钟
     </span>
   
 
@@ -233,23 +233,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+              <h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><h2 id="关于Spring“自动”这件事"><a href="#关于Spring“自动”这件事" class="headerlink" title="关于Spring“自动”这件事"></a>关于Spring“自动”这件事</h2><p>下面说的三种时期亦或是三种方式，知识入口不同而已，容器底层启动的过程是一样的，方式有早期和主流之分，但在开发中多是灵活搭配的，例如早期的代码融入新技术实现的代码（Import）。</p>
+<h3 id="1-XML配置时期"><a href="#1-XML配置时期" class="headerlink" title="1.XML配置时期"></a>1.XML配置时期</h3><p>最开始使用Spring的时候，也是早期主流的使用方式，我们需要在beans.xml中创建<bean>标签，并在子标签中对相应属性进行赋值，常用的方式有：</p>
+<p>传值三种方式：按参数索引，按参数类型，按参数名</p>
+<p>1.构造器注入（bean类中有相应的构造器）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;studentConstruct2&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;domain.Student&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;11&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">constructor-arg</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;jack&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">constructor-arg</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;2&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;22&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">constructor-arg</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<p>2.set注入（bean类中有相应的set方法）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;student&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;domain.Student&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;11&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;22&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;jack&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>以该文件为参数传入ClassPathXmlApplicationContext会得到一个applicationContext的上下文容器对象。</p>
+<p>从容器中获取bean并强转到原类型就能从容器中拿到该已赋值的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//获取applicationContext</span><br>ClassPathXmlApplicationContext applicationContext = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br><span class="hljs-comment">//传入beanId, 获取bean</span><br>Student studentNoValue = (Student) applicationContext.getBean(<span class="hljs-string">&quot;student&quot;</span>);<br></code></pre></td></tr></table></figure>
 
+<p>这种方式摆脱了奴役我们很久的new对象的方式，尽管这种方式看起来很麻烦，（重要的是思想，等我复习了再补充）</p>
+<h3 id="2-Autowired-Bean时期"><a href="#2-Autowired-Bean时期" class="headerlink" title="2.@Autowired@Bean时期"></a>2.@Autowired@Bean时期</h3><p>在spring的一个叫做核心配置文件的东西中配置自动扫描哪些包下面的bean。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml">#配置自动扫描包路径<br><span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.lunfee.beans&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>于此同时</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">	<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-Java-Config时期（SpringBoot）"><a href="#3-Java-Config时期（SpringBoot）" class="headerlink" title="3.Java Config时期（SpringBoot）"></a>3.Java Config时期（SpringBoot）</h3>
             </div>
             <hr>
             <div>
@@ -269,7 +278,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/26/session,cookie,request%E5%9F%9F/">
+                      <a href="/2021/09/26/Mybatis%E4%B8%8EJDBC/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -278,6 +287,12 @@
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/09/26/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

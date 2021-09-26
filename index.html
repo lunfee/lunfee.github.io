@@ -190,19 +190,23 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/09/26/hello-world/" target="_self">
-          Hello World
+        <a href="/2021/09/26/Redis/" target="_self">
+          
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/09/26/hello-world/" target="_self">
+        <a href="/2021/09/26/Redis/" target="_self">
           
           
             
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+          Redis需要知道Redis单条命令是保证原子性的，但是事务不保证原子性。
+一次性，顺序性，排他性，没有隔离级别的概念，
+Redis是单线程的：因为CPU处理速度不是Redis的瓶颈，Redis是基于内存操作的，它的瓶颈是机器的内存和网络带宽，单线程足够快了。
+Redis为什么这么快？
+Redis是将所有数据保存在内存中的，使用多线程的话CPU上下文切换也是很耗时的，使用单线程反而效率更高。
+Re
         </a>
       </p>
 
@@ -210,7 +214,367 @@ Quick
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 09:13" pubdate>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/Netty%E7%9F%A5%E6%A0%B9%E7%9F%A5%E5%BA%95/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/Netty%E7%9F%A5%E6%A0%B9%E7%9F%A5%E5%BA%95/" target="_self">
+          
+          
+            
+          
+          Netty知根知底Netty是网络编程基本框架，Java开发流行的Redis缓存的主从复制，分布式的RPC的底层通讯都使用Netty网络通讯。
+NIO是个什么玩意NIO(non-blocking-io，非阻塞io)
+
+
+
+
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/Mybatis%E4%B8%8EJDBC/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/Mybatis%E4%B8%8EJDBC/" target="_self">
+          
+          
+            
+          
+          title: Hello World
+Mybatis与JDBCJDBCJDBC，Java Database Connectivity，舰名思意，Java数据库连接，一般操作的步骤如下：
+1，根据四要素（Driver-Class，url，username，password）获得连接，
+2，编写sql语句，
+3，获取preparedStatement，预编译sql语句，
+4，获取并处理结果集
+5，关闭
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/%E6%9D%82%E8%B0%88/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/%E6%9D%82%E8%B0%88/" target="_self">
+          
+          
+            
+          
+          杂谈关于Spring“自动”这件事下面说的三种时期亦或是三种方式，知识入口不同而已，容器底层启动的过程是一样的，方式有早期和主流之分，但在开发中多是灵活搭配的，例如早期的代码融入新技术实现的代码（Import）。
+1.XML配置时期最开始使用Spring的时候，也是早期主流的使用方式，我们需要在beans.xml中创建标签，并在子标签中对相应属性进行赋值，常用的方式有：
+传值三种方式：按参数索引，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          
+          
+            
+          
+          请求转发，刷新页面在页面的跳转中，如果使用return”页面名”，默认走的是请求转发。
+1234567891011@Controllerpublic class IndexController &#123;    @GetMapping(&#123;&quot;/login&quot;,&quot;/&quot;&#125;)    public String getLoginPage()&#12
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/%E5%A5%BD%E5%BA%B7%E7%9A%84/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/%E5%A5%BD%E5%BA%B7%E7%9A%84/" target="_self">
+          
+          
+            
+          
+          好康的关于==和.equals()的区别其实很多人对于这个问题的答案可能就是一句简单的：双=号比较的是在堆内存中的地址值，equals()方法比较的是内容值。但是面试官要听的可不是这句话，或者他一定会问更深，更底层的问题，这里面牵扯了很多底层的计算机或者Java虚拟机的内容，下面先浅显的做一个梳理，后面有机会的话再修改补充。
+题外话内存作为一个存储数据的存在， 有一个很重要的特性， 就是内存里的数
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_self">
+          
+          
+            
+          
+          关于计算机网络杂谈IP地址用于确定主机
+端口号用于区分主机上的不同应用。
+TCP（Transmission Control Protocol, 传输控制协议）是基于数据流的协议，它是可靠的。
+UDP是基于报文传输的协议，它不是可靠的但是高效，经常用于像视频聊天这种实时性高但可靠性要求不高的通信，即使再视频语音通话中，有少数的丢帧也不影响通话的整体效果。
+Socket（插座）建立不同主机，不同应用间
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/Thymeleaf/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/Thymeleaf/" target="_self">
+          
+          
+            
+          
+          Thymeleaf 
+Thymeleaf 自动配置里面添加了默认的前后缀
+123public static final String DEFAULT_PREFIX = &quot;classpath:/templates/&quot;;public static final String DEFAULT_SUFFIX = &quot;.html&quot;;
+
+
+
+12th:action=&quo
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/SpringMVC/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/SpringMVC/" target="_self">
+          
+          
+            
+          
+          SpringMVC原理SpringMVC架构：所有的WEB MVC框架都是这么设计的：一个中央Servlet程序，用于把请求分发到相应的控制器，实现业务逻辑与跳转。由于SpringMVC整合了Spring IoC容器，所以它具有Spring的所有功能。Spring的Servlet的实现类是DispatcherServlet，具有更强大的功能。
+DispatcherServlet：
+
+
+
+浏览器访问
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/26/Springboot%20%E4%B8%AD,%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/26/Springboot%20%E4%B8%AD,%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          
+          
+            
+          
+          Springboot 中/**,/和/*的区别Springboot 中经常使用拦截器，过滤器处理掉一部分请求操作，在设置拦截域的时候使用/**,/和/*拦截的效果是不同的
+/**：拦截所有文件，包括文件夹下的子文件夹，包括静态资源，因此在拦截的时候需要放行如.css文件等的静态资源
+/*：拦截该文件夹下所有的文件路径，不包含子文件夹，包涵页面。
+/：拦截该文件夹下的所有文件路径，不包含页面
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 13:50" pubdate>
               2021-09-26
             </time>
           </div>
@@ -222,6 +586,12 @@ Quick
   </div>
 
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 
