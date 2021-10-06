@@ -4,11 +4,43 @@
   
   
   <entry>
+    <title>20211006</title>
+    <link href="/2021/10/06/20211006/"/>
+    <url>/2021/10/06/20211006/</url>
+    
+    <content type="html"><![CDATA[<p>我也不知道 Typora 发生了什么事情，本来是想来记个日记的，发现了一个 bug，就是写完 yaml 之后正文第一个字符必须是英文，不管那么多了，正文开始吧….</p><p>今天是国庆假期的倒数第二天了，虽然学校只放三天的假期，但是我四号赶来学校的时候实验室其实没什么人过来，说来是有点自私的，我也知道可以晚点来学校，多陪陪家人，奈何我的心里面想的工作学习的事情也怕被耽搁，其实差不多了，这几天过的还算充实。只是突然回来学校有点找不到原来的方向了，尽管在离校前，对我的当时任务做了个入栈操作，如图所示：</p><p><img src="https://i.loli.net/2021/10/06/owERgTnqdJcF7LB.png" alt="image-20211006171648690"></p><p>除了这些，我其实还需要搞机器人，以应付胡**的突然“关心”，说实话从读研到现在我的学术进展几乎为零，也没有头绪，没有心思确定未来我要做什么发小论文和毕业，到底是不是机器人啊，一年后我就有答案了啊哈哈，因为那个时候就是迫在眉睫了。现在我就安心的想我的工作吧，科研这条路不是每个人都适合，更不是每个人都有机遇。可能我遇到一个好的导师，我就……就可以读博了，别，感觉在这个学校或者说国内这个环境下（国外不知道），真的没那么多人喜欢科研，不过是混个学历罢了。我就勉为其难掩盖我的科研素养，好好利用这最后的学历光环搞钱吧。</p><p>可能对于我个人而言，生活的开心快乐真的比什么都重要，但是我也知道，快乐可以是纯粹的，也可以是物质的，我也知道，纯粹的快乐是最持久的，但是我仍然义无反顾的追求物质的快乐，直白点就是金钱。可能超脱物质的那种人真的存在，但那必不是我。从小长大的环境告诉我，没有金钱就没有自信，尽管这个事实被我的学历冲淡了那么一点点，但其实只是把金钱的价值转移到了具有强大购买了的高学历上了，我不否认这一点，因为这太正常不过了。</p><p>有钱可以让我对得起自己的亲情（良心），比如不会表达的我可以靠买一些生活用品啊，小礼物啊来慰藉自己的父母，奶奶，以及几个宝贝；比如可以毫不吝啬的买高铁票飞机票回家，而不用抉择这路途如此艰难究竟要不要回家；比如父母的体检费啊，以后难免可能有高昂的医药费啊，我想毫不犹豫的说，治，都少钱都给我治，但拿需要底气——来自于金钱。</p><p>我一点也不心虚的觉得我很爱我的家人，尤其心疼我的父母，有物质层面的有精神层面的甚至是知识层面上。物质上，他们挣钱真的太不容易了，尽管最近几年在花销上大了不少，但依旧是省吃俭用，工作也是普通劳动人民，尽管我也是如此，省吃俭用，未来的新型劳动人民，但这种心疼是油然而生的，这种心疼源自生为他们一点一点用心养大的儿子的我的生活质量要比他们高出很多上，源自工作的体面程度上，源自社会地位上，不过也还好有我，尽管算是在这残酷的世界上苟且偷生吧，让他们有一点骄傲和慰藉，这一点真的有在精神层面弥补到他们，我确定。关于精神层面的心疼和知识层面的下次再写吧。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Diary</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Object类</title>
+    <link href="/2021/09/27/Object%E7%B1%BB/"/>
+    <url>/2021/09/27/Object%E7%B1%BB/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Netty</title>
     <link href="/2021/09/26/Netty%E7%9F%A5%E6%A0%B9%E7%9F%A5%E5%BA%95/"/>
     <url>/2021/09/26/Netty%E7%9F%A5%E6%A0%B9%E7%9F%A5%E5%BA%95/</url>
     
-    <content type="html"><![CDATA[<h1 id="Netty知根知底"><a href="#Netty知根知底" class="headerlink" title="Netty知根知底"></a>Netty知根知底</h1><h2 id="学前问题"><a href="#学前问题" class="headerlink" title="学前问题"></a>学前问题</h2><p>netty线程模型</p><p>NIO为什么这么快，是否高效，和IO的区别</p><p>NIO和BIO和IO</p><p>NIO原理</p><p>java里面哪些用到了NIO</p><p>TCP粘包拆包</p><p>Netty是网络编程基本框架，Java开发流行的Redis缓存的主从复制，分布式的RPC的底层通讯都使用Netty网络通讯。</p><h2 id="NIO是个什么玩意"><a href="#NIO是个什么玩意" class="headerlink" title="NIO是个什么玩意"></a>NIO是个什么玩意</h2><p>NIO(non-blocking-io，非阻塞io)</p><p><img src="https://i.loli.net/2021/09/27/Ld7zph2ajmvIwMF.png" alt="image-20210925163226750"></p><img src="https://i.loli.net/2021/09/27/7YfjtHqBmRCKgVo.png" alt="image-20210925163239860" style="zoom:200%;" /><p><img src="https://i.loli.net/2021/09/27/mwPBF2r46MYpZLg.png" alt="image-20210925163521053"></p><p><img src="https://i.loli.net/2021/09/27/dHwjf7kBD3XoMVc.png" alt="image-20210925163857831"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Netty知根知底"><a href="#Netty知根知底" class="headerlink" title="Netty知根知底"></a>Netty知根知底</h1><h2 id="学前问题"><a href="#学前问题" class="headerlink" title="学前问题"></a>学前问题</h2><p>netty线程模型</p><p>NIO为什么这么快，是否高效，和IO的区别</p><p>NIO和BIO和IO</p><p>NIO原理</p><p>NIO究竟怎么实现非阻塞的</p><p>java里面哪些用到了NIO</p><p>TCP粘包拆包</p><p>Netty是网络编程基本框架，Java开发流行的Redis缓存的主从复制，分布式的RPC的底层通讯都使用Netty网络通讯。</p><h2 id="NIO是个什么玩意"><a href="#NIO是个什么玩意" class="headerlink" title="NIO是个什么玩意"></a>NIO是个什么玩意</h2><p>NIO(non-blocking-io，非阻塞io)</p><p><img src="https://i.loli.net/2021/09/27/Ld7zph2ajmvIwMF.png" alt="image-20210925163226750"></p><img src="https://i.loli.net/2021/09/27/7YfjtHqBmRCKgVo.png" alt="image-20210925163239860" style="zoom:200%;" /><p><img src="https://i.loli.net/2021/09/27/mwPBF2r46MYpZLg.png" alt="image-20210925163521053"></p><p><img src="https://i.loli.net/2021/09/27/dHwjf7kBD3XoMVc.png" alt="image-20210925163857831"></p><p>拆包粘包问题，</p>]]></content>
     
     
     
