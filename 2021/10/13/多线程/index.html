@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/10/17/5HFDiwARtGZXpNB.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/17/hYEj1pHd9OZxJyA.png">
 <meta property="article:published_time" content="2021-10-13T12:31:00.000Z">
-<meta property="article:modified_time" content="2021-10-17T12:12:42.703Z">
+<meta property="article:modified_time" content="2021-10-17T13:53:13.978Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="线程，并发">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.1k 字
+      5k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      16 分钟
     </span>
   
 
@@ -291,7 +291,7 @@
 <li>对于多核CPU而言，处理任务是否可以拆分，是否需要拆分都需要根据实际情况确定。</li>
 <li>IO操作是不占用CPU的，但是如果使用<strong>阻塞IO</strong>，相当于线程虽然不用CPU，但是需要一直等待IO操作结束，没有充分的利用线程，所以才有后面的<strong>非阻塞IO</strong>和<strong>异步IO</strong>（NIO）.</li>
 </ol>
-<h2 id="JAVA线程"><a href="#JAVA线程" class="headerlink" title="JAVA线程"></a>JAVA线程</h2><h3 id="创建和运行线程"><a href="#创建和运行线程" class="headerlink" title="创建和运行线程"></a>创建和运行线程</h3><h4 id="方法1：使用Thread（继承Threada类，重写run-方法）"><a href="#方法1：使用Thread（继承Threada类，重写run-方法）" class="headerlink" title="方法1：使用Thread（继承Threada类，重写run()方法）"></a>方法1：使用Thread（继承Threada类，重写run()方法）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//创建线程对象</span><br><span class="hljs-comment">//使用匿名内部类的方式创建Thread，因为只用一次，直接在new的时候覆盖run()方法。</span><br>Thread t1 = <span class="hljs-keyword">new</span> Thread(<span class="hljs-string">&quot;t1&quot;</span>)&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>&#123;<br>        log.debug(<span class="hljs-string">&quot;thread1 run&quot;</span>);<br>    &#125;<br>&#125;;<br><span class="hljs-comment">//交给任务调度器调度分配时间片，由CPU执行。</span><br>t1.start();<br></code></pre></td></tr></table></figure>
+<h2 id="JAVA线程基础"><a href="#JAVA线程基础" class="headerlink" title="JAVA线程基础"></a>JAVA线程基础</h2><h3 id="创建和运行线程"><a href="#创建和运行线程" class="headerlink" title="创建和运行线程"></a>创建和运行线程</h3><h4 id="方法1：使用Thread（继承Threada类，重写run-方法）"><a href="#方法1：使用Thread（继承Threada类，重写run-方法）" class="headerlink" title="方法1：使用Thread（继承Threada类，重写run()方法）"></a>方法1：使用Thread（继承Threada类，重写run()方法）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//创建线程对象</span><br><span class="hljs-comment">//使用匿名内部类的方式创建Thread，因为只用一次，直接在new的时候覆盖run()方法。</span><br>Thread t1 = <span class="hljs-keyword">new</span> Thread(<span class="hljs-string">&quot;t1&quot;</span>)&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>&#123;<br>        log.debug(<span class="hljs-string">&quot;thread1 run&quot;</span>);<br>    &#125;<br>&#125;;<br><span class="hljs-comment">//交给任务调度器调度分配时间片，由CPU执行。</span><br>t1.start();<br></code></pre></td></tr></table></figure>
 
 <h4 id="方法2；使用Runnable配合Thread"><a href="#方法2；使用Runnable配合Thread" class="headerlink" title="方法2；使用Runnable配合Thread"></a>方法2；使用Runnable配合Thread</h4><ol>
 <li>把线程和任务分离</li>
@@ -350,6 +350,35 @@
 </ul>
 <p>上下文切换的具体情况：</p>
 <p><img src="https://i.loli.net/2021/10/17/hYEj1pHd9OZxJyA.png" srcset="/img/loading.gif" lazyload alt="image-20211017201009754"></p>
+<h3 id="线程常用方法讲解"><a href="#线程常用方法讲解" class="headerlink" title="线程常用方法讲解"></a>线程常用方法讲解</h3><h4 id="1-start-vs-run"><a href="#1-start-vs-run" class="headerlink" title="(1)start() vs run()"></a>(1)start() vs run()</h4><p>被创建的Thread对象直接调用重写的run方法时， run方法是在<strong>主线程</strong>中被执行的，而不是在我们所创建的线程中执行。所以如果想要在所创建的线程中执行run方法，<strong>需要使用Thread对象的start方法。</strong></p>
+<h4 id="2-sleep-与yield"><a href="#2-sleep-与yield" class="headerlink" title="(2)sleep()与yield()"></a>(2)sleep()与yield()</h4><p><strong>sleep</strong> (使线程阻塞)</p>
+<ol>
+<li><p>调用 sleep 会让当前线程从 <strong>Running 进入 Timed Waiting 状态（阻塞）</strong>，可通过state()方法查看</p>
+</li>
+<li><p>其它线程可以使用 <strong>interrupt</strong> 方法打断正在睡眠的线程，这时 sleep 方法会抛出 InterruptedException</p>
+</li>
+<li><p>睡眠结束后的线程未必会立刻得到执行</p>
+</li>
+<li><p>建议用 <strong>TimeUnit 的 sleep</strong> 代替 Thread 的 sleep 来获得更好的可读性 。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//休眠一秒</span><br>TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);<br><span class="hljs-comment">//休眠一分钟</span><br>TimeUnit.MINUTES.sleep(<span class="hljs-number">1</span>);Copy<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>yield （让出当前线程）</p>
+<ol>
+<li>调用 yield 会让当前线程从 <strong>Running 进入 Runnable 就绪状态</strong>（仍然有可能(机会)被执行），然后调度执行其它线程</li>
+<li>具体的实现依赖于操作系统的任务调度器</li>
+</ol>
+<h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><ul>
+<li><p>线程优先级会提示（hint）调度器优先调度该线程，但它仅仅是一个提示，调度器可以忽略它</p>
+</li>
+<li><p>如果 cpu 比较忙，那么优先级高的线程会获得更多的时间片，但 cpu 闲时，优先级几乎没作用</p>
+</li>
+<li><p>设置方法：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">thread1.setPriority(Thread.MAX_PRIORITY); <span class="hljs-regexp">//</span>设置为优先级最高<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-join-方法"><a href="#3-join-方法" class="headerlink" title="(3)join()方法"></a>(3)join()方法</h4><p>用于等待某个线程结束。哪个线程内调用join()方法，就等待哪个线程结束，然后再去执行其他线程。</p>
+<p>如在主线程中调用t1.join()，则是主线程等待t1线程结束</p>
+<p>join() 方法可用于线程的同步</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">Thread</span> <span class="hljs-keyword">thread</span> = <span class="hljs-literal">new</span> <span class="hljs-keyword">Thread</span>();<br><span class="hljs-comment">//等待thread线程执行结束</span><br><span class="hljs-keyword">thread</span>.<span class="hljs-keyword">join</span>();<br><span class="hljs-comment">//最多等待1000ms,如果1000ms内线程执行完毕，则会直接执行下面的语句，不会等够1000ms</span><br><span class="hljs-keyword">thread</span>.<span class="hljs-keyword">join</span>(<span class="hljs-number">1000</span>);<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
