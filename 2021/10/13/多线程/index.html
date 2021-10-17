@@ -23,11 +23,18 @@
 <meta property="og:site_name" content="Lunfee&#39;s Blog">
 <meta property="og:description" content="Java多线程进程与线程进程计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。 想要运行一个程序就必须要把这些指令集加载到机器的CPU中，同时将数据加载到内存，运行起来的程序叫做进程，进程是用来加载指令，管理IO，管理内存的。同一个程序如果允许多次执行，就形成了多个进程。 线程一个进程可以包括多个线程（Windows进程就是一个线程容器） 一个线程就">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/10/17/5kzyDTlpFstjhu6.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/17/ZH2raKA4k6JvITS.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/17/kqhrBep91x4o85i.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/17/OjnMUfIxRTkZlLc.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/17/5HFDiwARtGZXpNB.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/17/hYEj1pHd9OZxJyA.png">
 <meta property="article:published_time" content="2021-10-13T12:31:00.000Z">
-<meta property="article:modified_time" content="2021-10-15T12:04:18.156Z">
+<meta property="article:modified_time" content="2021-10-17T12:10:14.915Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="线程，并发">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2021/10/17/5kzyDTlpFstjhu6.png">
   
   <title>多线程 - Lunfee&#39;s Blog</title>
 
@@ -196,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      928 字
+      4.1k 字
     </span>
   
 
@@ -205,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      13 分钟
     </span>
   
 
@@ -270,15 +277,79 @@
 <li>线程间的上下文切换主要是对指令的临时存储，开销较小</li>
 <li>进程间的上下文切换涉及到资源的临时存储，开销较大</li>
 </ol>
-<h2 id="并行与并发"><a href="#并行与并发" class="headerlink" title="并行与并发"></a>并行与并发</h2><p>并发(Concurent)的概念是建立在单个处理器上，在逻辑（时间）上好像多个线程在同步运行，实际上是在不同线程间不停切换。处理器核心为不同线程分发时间片，CPU在不同的线程见轮询（Windows下最短时间片为15ms)</p>
+<h3 id="并行与并发"><a href="#并行与并发" class="headerlink" title="并行与并发"></a>并行与并发</h3><p>并发(Concurent)的概念是建立在单个处理器上，在逻辑（时间）上好像多个线程在同步运行，实际上是在不同线程间不停切换。处理器核心为不同线程分发时间片，CPU在不同的线程见轮询（Windows下最短时间片为15ms)</p>
 <p>并行是物理意义上的同步运行，基于多个处理器（核心），单核处理器无法实现并行。</p>
 <p>计算机的任务处理是并行域并发同时发生的，因为大多数情况下，计算机需要处理的线程数要大于计算机的总处理器核数。</p>
-<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>任务执行的同步与异步：</p>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><p>任务执行的同步与异步：</p>
 <ol>
 <li>需要等待结果返回才能继续运行就是同步</li>
 <li>不要等待结果返回就能继续运行就是同步</li>
 </ol>
 <p>Java多线程的同步：让多个线程步调一致</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ol>
+<li>在单核CPU下，多线程并不能提高实际的效率，只是为了在不同的任务之间转换，不同线程轮流使用CPU，避免单线程工作，其他线程等待。</li>
+<li>对于多核CPU而言，处理任务是否可以拆分，是否需要拆分都需要根据实际情况确定。</li>
+<li>IO操作是不占用CPU的，但是如果使用<strong>阻塞IO</strong>，相当于线程虽然不用CPU，但是需要一直等待IO操作结束，没有充分的利用线程，所以才有后面的<strong>非阻塞IO</strong>和<strong>异步IO</strong>（NIO）.</li>
+</ol>
+<h2 id="JAVA线程"><a href="#JAVA线程" class="headerlink" title="JAVA线程"></a>JAVA线程</h2><h3 id="创建和运行线程"><a href="#创建和运行线程" class="headerlink" title="创建和运行线程"></a>创建和运行线程</h3><h4 id="方法1：使用Thread（继承Threada类，重写run-方法）"><a href="#方法1：使用Thread（继承Threada类，重写run-方法）" class="headerlink" title="方法1：使用Thread（继承Threada类，重写run()方法）"></a>方法1：使用Thread（继承Threada类，重写run()方法）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//创建线程对象</span><br><span class="hljs-comment">//使用匿名内部类的方式创建Thread，因为只用一次，直接在new的时候覆盖run()方法。</span><br>Thread t1 = <span class="hljs-keyword">new</span> Thread(<span class="hljs-string">&quot;t1&quot;</span>)&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>&#123;<br>        log.debug(<span class="hljs-string">&quot;thread1 run&quot;</span>);<br>    &#125;<br>&#125;;<br><span class="hljs-comment">//交给任务调度器调度分配时间片，由CPU执行。</span><br>t1.start();<br></code></pre></td></tr></table></figure>
+
+<h4 id="方法2；使用Runnable配合Thread"><a href="#方法2；使用Runnable配合Thread" class="headerlink" title="方法2；使用Runnable配合Thread"></a>方法2；使用Runnable配合Thread</h4><ol>
+<li>把线程和任务分离</li>
+<li>Tread表示线程，Runnable表示可运行的任务，线程要执行的代码。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">Runnable task = <span class="hljs-keyword">new</span> Runnable()&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>&#123;<br>        log.debug(<span class="hljs-string">&quot;task run&quot;</span>);<br>    &#125;<br>&#125;;<br><span class="hljs-comment">//也可以交给线程池处理</span><br>Thread t2 = Thread(task, <span class="hljs-string">&quot;t2&quot;</span>);<br>t2.start();<br></code></pre></td></tr></table></figure>
+
+<h5 id="新知识"><a href="#新知识" class="headerlink" title="新知识"></a>新知识</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Runnable接口源码</span><br><span class="hljs-meta">@FunctionlInterface</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Runnable</span></span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">    *</span><br><span class="hljs-comment">    *</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@FunctionalInterface注解使用在仅有一个抽象方法的接口上，在Java8 以上的版本中可以使用lambda表达式简写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">Runnable task = () -&gt; &#123;<br>    log.debug(<span class="hljs-string">&quot;task run&quot;</span>);<br>&#125;<br><span class="hljs-comment">//也可以交给线程池处理</span><br>Thread t2 = Thread(task, <span class="hljs-string">&quot;t2&quot;</span>);<br>t2.start();<br></code></pre></td></tr></table></figure>
+
+<h4 id="方法3：FutureTssk配合Thread（）"><a href="#方法3：FutureTssk配合Thread（）" class="headerlink" title="方法3：FutureTssk配合Thread（）"></a>方法3：FutureTssk配合Thread（）</h4><p>从Runnable接口源码可以看出，Runnable接口的run()方法没有返回值，无法进行线程间数据的传输共享。</p>
+<p><img src="https://i.loli.net/2021/10/17/5kzyDTlpFstjhu6.png" srcset="/img/loading.gif" lazyload alt="image-20211017171615846"></p>
+<p>FutureTask类可以返回线程的执行结果，它的继承关系如图：</p>
+<p><img src="https://i.loli.net/2021/10/17/ZH2raKA4k6JvITS.png" srcset="/img/loading.gif" lazyload alt="image-20211017172252995"></p>
+<p>继承的Future接口中有get()方法，能实现返回，除此之外，FutureTask需要搭配Callable接口（有返回值）：</p>
+<p><img src="https://i.loli.net/2021/10/17/kqhrBep91x4o85i.png" srcset="/img/loading.gif" lazyload alt="image-20211017172157201"></p>
+<p>一个代码示例（之前在尚硅谷记的）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CallableThtread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ExecutionException, InterruptedException </span>&#123;<br>        <span class="hljs-comment">//3.create the instance of call class</span><br>        NumberThresd numberThresd = <span class="hljs-keyword">new</span> NumberThresd();<br>        <span class="hljs-comment">//4.use the futuretask tool</span><br>        FutureTask futureTask = <span class="hljs-keyword">new</span> FutureTask(numberThresd);<br>        <span class="hljs-comment">//5.create new thread</span><br>        <span class="hljs-keyword">new</span> Thread(futureTask).start();<br>        <span class="hljs-comment">//6.call get method if you need the return value of call</span><br>        Object o = futureTask.get();<br>        System.out.println(o);<br><br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//1.create a class implements Callable interface and Override call method</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NumberThresd</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Callable</span></span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-comment">//2.return Object, Integer is the subclass of Object, int sum is turned into Integer automatically</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                sum += i;<br>                System.out.println(i);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> sum;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>关于为什么使用Future命名，从官方对Future的解释可以看出，get()方法可能需要阻塞等待执行结果(未来的结果)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">A Future represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. The result can only be retrieved using method get when the computation has completed, blocking if necessary until it is ready.<br></code></pre></td></tr></table></figure>
+
+<h3 id="线程和进程的查看"><a href="#线程和进程的查看" class="headerlink" title="线程和进程的查看"></a>线程和进程的查看</h3><p>在Windows下提供了查看所有进程与线程的cmd命令行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">tasklist   //显示所有任务<br>taskkill   //通过pid杀死某个进程<br>tasklist | findstr java    //通过管道方法搜索带有java字段的任务<br></code></pre></td></tr></table></figure>
+
+<p>Linus下对线程的查看操作更为丰富</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">ps -fe | grep java    //管道筛选所有Java字段的进程<br>kill pid              //杀死进程<br>top					//动态采集进程运行情况，包括CPU占用和MER占用<br>top -H -p pid		 //显示进程中所有线程的信息(-H 表示查看线程)<br></code></pre></td></tr></table></figure>
+
+
+
+<p>JDK也提供了一套可以用来专门查看Java线程的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">jps       //查看所有java进程<br></code></pre></td></tr></table></figure>
+
+<h3 id="线程的运行底层原理"><a href="#线程的运行底层原理" class="headerlink" title="线程的运行底层原理"></a>线程的运行底层原理</h3><p>Java Virtual Machine Stacks(Java 虚拟机栈)</p>
+<p><img src="https://i.loli.net/2021/10/17/OjnMUfIxRTkZlLc.png" srcset="/img/loading.gif" lazyload alt="image-20211017200109319"></p>
+<p>JVM是由堆，栈，方法区组成，其中栈时线程私有的，每个线程启动，虚拟机都会为其分配一块栈内存，</p>
+<p>每个栈由多个栈帧(Frame)组成，对应这每次方法调用时所占用的内存。</p>
+<p>每个线程只有一个活动的栈帧，对应着当前正在执行的那个方法。</p>
+<p>单个线程的运行时栈内存和栈帧内存的使用情况：</p>
+<p><img src="https://i.loli.net/2021/10/17/5HFDiwARtGZXpNB.png" srcset="/img/loading.gif" lazyload alt="image-20211017194407325"></p>
+<p>多个线程的情况下，各个线程之间有各自的占内存，栈帧是相互独立的，</p>
+<h3 id="线程上下文切换（Thread-Context-Switch）"><a href="#线程上下文切换（Thread-Context-Switch）" class="headerlink" title="线程上下文切换（Thread Context Switch）"></a>线程上下文切换（Thread Context Switch）</h3><p>因为以下一些原因导致 cpu 不再执行当前的线程，转而执行另一个线程的代码</p>
+<ul>
+<li>线程的 cpu 时间片用完</li>
+<li>垃圾回收 有更高优先级的线程需要运行</li>
+<li>线程自己调用了 sleep、yield、wait、join、park、synchronized、lock 等方法</li>
+</ul>
+<p>当 Context Switch 发生时，需要由操作系统保存当前线程的状态，并恢复另一个线程的状态，Java 中对应的概念 就是程序计数器（Program Counter Register），它的作用是记住下一条 jvm 指令的执行地址，是线程私有的</p>
+<ul>
+<li>状态包括程序计数器、虚拟机栈中每个栈帧的信息，如局部变量、操作数栈、返回地址等</li>
+<li>Context Switch 频繁发生会影响性能</li>
+</ul>
+<p>上下文切换的具体情况：</p>
+<p><img src="https://i.loli.net/2021/10/17/hYEj1pHd9OZxJyA.png" srcset="/img/loading.gif" lazyload alt="image-20211017201009754"></p>
 
             </div>
             <hr>

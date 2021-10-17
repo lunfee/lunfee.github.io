@@ -337,6 +337,49 @@ Thymeleaf 自动配置里面添加了默认的前后缀
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="关于请求转发">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          关于请求转发
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          
+          
+            
+          
+          请求转发，刷新页面在页面的跳转中，如果使用return”页面名”，默认走的是请求转发。
+1234567891011@Controllerpublic class IndexController &#123;    @GetMapping(&#123;&quot;/login&quot;,&quot;/&quot;&#125;)    public String getLoginPage()&#12
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-11 19:41" pubdate>
+              2021-09-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/09/11/session,cookie,request%E5%9F%9F/" target="_self">
           <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="Session,Cookie,Request">
         </a>
@@ -380,49 +423,6 @@ sessi0n用于存放不同页面的公共信息，比如登录信息，比如在�
               <a href="/tags/%E5%9F%9F/">域</a>
             
           </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
-          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="关于请求转发">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
-          关于请求转发
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
-          
-          
-            
-          
-          请求转发，刷新页面在页面的跳转中，如果使用return”页面名”，默认走的是请求转发。
-1234567891011@Controllerpublic class IndexController &#123;    @GetMapping(&#123;&quot;/login&quot;,&quot;/&quot;&#125;)    public String getLoginPage()&#12
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-11 19:41" pubdate>
-              2021-09-11
-            </time>
-          </div>
-        
-        
         
       </div>
     </article>
