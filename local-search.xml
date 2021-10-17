@@ -227,19 +227,6 @@
   
   
   <entry>
-    <title>关于请求转发</title>
-    <link href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/"/>
-    <url>/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    
-    <content type="html"><![CDATA[<h2 id="请求转发，刷新页面"><a href="#请求转发，刷新页面" class="headerlink" title="请求转发，刷新页面"></a>请求转发，刷新页面</h2><p>在页面的跳转中，如果使用return”页面名”，默认走的是请求转发。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexController</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&#123;&quot;/login&quot;,&quot;/&quot;&#125;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getLoginPage</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;login&quot;</span>;<br>    &#125;<br>    <span class="hljs-meta">@PostMapping(&quot;/index&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getIndexPage</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"> <span class="hljs-comment">&lt;!--login表单提交走post请求，跳转到/index 控制器--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-signin&quot;</span>  <span class="hljs-attr">th:action</span>=<span class="hljs-string">&quot;@&#123;/index&#125;&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在这种情况下，刷新页面会重新提交表单，要避免这种情况要使用重定向方法。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Session,Cookie,Request</title>
     <link href="/2021/09/11/session,cookie,request%E5%9F%9F/"/>
     <url>/2021/09/11/session,cookie,request%E5%9F%9F/</url>
@@ -253,6 +240,19 @@
       <tag>域</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于请求转发</title>
+    <link href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/"/>
+    <url>/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="请求转发，刷新页面"><a href="#请求转发，刷新页面" class="headerlink" title="请求转发，刷新页面"></a>请求转发，刷新页面</h2><p>在页面的跳转中，如果使用return”页面名”，默认走的是请求转发。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexController</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&#123;&quot;/login&quot;,&quot;/&quot;&#125;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getLoginPage</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;login&quot;</span>;<br>    &#125;<br>    <span class="hljs-meta">@PostMapping(&quot;/index&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getIndexPage</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"> <span class="hljs-comment">&lt;!--login表单提交走post请求，跳转到/index 控制器--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-signin&quot;</span>  <span class="hljs-attr">th:action</span>=<span class="hljs-string">&quot;@&#123;/index&#125;&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在这种情况下，刷新页面会重新提交表单，要避免这种情况要使用重定向方法。</p>]]></content>
+    
+    
     
   </entry>
   
