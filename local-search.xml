@@ -54,7 +54,9 @@
     
     <tags>
       
-      <tag>线程，并发</tag>
+      <tag>线程</tag>
+      
+      <tag>并发</tag>
       
     </tags>
     
@@ -254,6 +256,19 @@
   
   
   <entry>
+    <title>Thymeleaf</title>
+    <link href="/2021/09/11/Thymeleaf/"/>
+    <url>/2021/09/11/Thymeleaf/</url>
+    
+    <content type="html"><![CDATA[<p>Thymeleaf </p><p>Thymeleaf 自动配置里面添加了默认的前后缀</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_PREFIX = <span class="hljs-string">&quot;classpath:/templates/&quot;</span>;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_SUFFIX = <span class="hljs-string">&quot;.html&quot;</span>;<br></code></pre></td></tr></table></figure><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml">th:action=&quot;@&#123;/index&#125;      使用模板引擎定向controller<br>th:text=&quot;$&#123;&#125;&quot;             向model中取值//也可以像request中取值，一次request对应一个model//zh<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Session,Cookie,Request</title>
     <link href="/2021/09/11/session,cookie,request%E5%9F%9F/"/>
     <url>/2021/09/11/session,cookie,request%E5%9F%9F/</url>
@@ -267,19 +282,6 @@
       <tag>域</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Thymeleaf</title>
-    <link href="/2021/09/11/Thymeleaf/"/>
-    <url>/2021/09/11/Thymeleaf/</url>
-    
-    <content type="html"><![CDATA[<p>Thymeleaf </p><p>Thymeleaf 自动配置里面添加了默认的前后缀</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_PREFIX = <span class="hljs-string">&quot;classpath:/templates/&quot;</span>;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_SUFFIX = <span class="hljs-string">&quot;.html&quot;</span>;<br></code></pre></td></tr></table></figure><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml">th:action=&quot;@&#123;/index&#125;      使用模板引擎定向controller<br>th:text=&quot;$&#123;&#125;&quot;             向model中取值//也可以像request中取值，一次request对应一个model//zh<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
     
   </entry>
   
