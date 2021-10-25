@@ -16,12 +16,12 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="Java多线程进程与线程进程计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。 想要运行一个程序就必须要把这些指令集加载到机器的CPU中，同时将数据加载到内存，运行起来的程序叫做进程，进程是用来加载指令，管理IO，管理内存的。同一个程序如果允许多次执行，就形成了多个进程。 线程一个进程可以包括多个线程（Windows进程就是一个线程容器） 一个线程就">
+  <meta name="description" content="Java多线程杂谈java线程与操作系统的本地线程一一对应，Java线程开启本地线程就会创建，Java线程结束，本地线程就被回收 进程与线程进程计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。 想要运行一个程序就必须要把这些指令集加载到机器的CPU中，同时将数据加载到内存，运行起来的程序叫做进程，进程是用来加载指令，管理IO，管理内存的。同一个程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程">
 <meta property="og:url" content="http://example.com/2021/10/13/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Lunfee&#39;s Blog">
-<meta property="og:description" content="Java多线程进程与线程进程计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。 想要运行一个程序就必须要把这些指令集加载到机器的CPU中，同时将数据加载到内存，运行起来的程序叫做进程，进程是用来加载指令，管理IO，管理内存的。同一个程序如果允许多次执行，就形成了多个进程。 线程一个进程可以包括多个线程（Windows进程就是一个线程容器） 一个线程就">
+<meta property="og:description" content="Java多线程杂谈java线程与操作系统的本地线程一一对应，Java线程开启本地线程就会创建，Java线程结束，本地线程就被回收 进程与线程进程计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。 想要运行一个程序就必须要把这些指令集加载到机器的CPU中，同时将数据加载到内存，运行起来的程序叫做进程，进程是用来加载指令，管理IO，管理内存的。同一个程序">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/10/17/5kzyDTlpFstjhu6.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/17/ZH2raKA4k6JvITS.png">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/10/21/UhMp4cRNVS9GPmK.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/22/yuk689JfSLjoZHQ.png">
 <meta property="article:published_time" content="2021-10-13T12:31:00.000Z">
-<meta property="article:modified_time" content="2021-10-23T14:06:14.012Z">
+<meta property="article:modified_time" content="2021-10-24T12:44:23.808Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="线程">
 <meta property="article:tag" content="并发">
@@ -249,7 +249,8 @@
             <h1 style="display: none">多线程</h1>
             
             <div class="markdown-body">
-              <h1 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h1><h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。</p>
+              <h1 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h1><h2 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h2><p>java线程与操作系统的本地线程一一对应，Java线程开启本地线程就会创建，Java线程结束，本地线程就被回收</p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>计算机操作系统的可执行文件是由一行行代码或指令组成，这些静态的指令与数据文件在计算机中叫一个程序。</p>
 <p>想要运行一个<strong>程序</strong>就必须要把这些指令集加载到机器的CPU中，同时将数据加载到内存，运行起来的程序叫做<strong>进程</strong>，进程是用来加载指令，管理IO，管理内存的。同一个程序如果允许多次执行，就形成了多个进程。</p>
 <h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>一个进程可以包括多个线程（Windows进程就是一个线程容器）</p>
 <p>一个线程就是一个指令流，将指令流中的一条条指令以一定的顺序交给CPU执行</p>
