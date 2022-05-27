@@ -16,17 +16,21 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="背景：做题看 解析时偶然遇到 weiwei，他解题方法和思路比较适合我，可能也适合大多数人 hhh….">
+  <meta name="description" content="背景做题看题解时偶然遇到 weiwei，他解题方法和思路比较适合我，可能也适合大多数人 hhh….下面附上他讲解回溯入门时的回答： https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;permutations&#x2F;solution&#x2F;hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw&#x2F; 我做了其中的：  全排列(1&amp;2) 组合总数(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回溯&amp;剪枝">
 <meta property="og:url" content="http://example.com/2021/10/26/%E5%9B%9E%E6%BA%AF+%E5%89%AA%E6%9E%9D/index.html">
 <meta property="og:site_name" content="Lunfee&#39;s Blog">
-<meta property="og:description" content="背景：做题看 解析时偶然遇到 weiwei，他解题方法和思路比较适合我，可能也适合大多数人 hhh….">
+<meta property="og:description" content="背景做题看题解时偶然遇到 weiwei，他解题方法和思路比较适合我，可能也适合大多数人 hhh….下面附上他讲解回溯入门时的回答： https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;permutations&#x2F;solution&#x2F;hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw&#x2F; 我做了其中的：  全排列(1&amp;2) 组合总数(">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/Smc196oWhuxrsVA.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/rXAxaScuL3kqjRN.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/OYVCNKU4F3MpHzf.png">
 <meta property="article:published_time" content="2021-10-26T07:10:00.000Z">
-<meta property="article:modified_time" content="2021-10-26T07:16:59.604Z">
+<meta property="article:modified_time" content="2021-10-26T08:16:24.723Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2021/10/26/Smc196oWhuxrsVA.png">
   
   <title>回溯&amp;剪枝 - Lunfee&#39;s Blog</title>
 
@@ -195,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      48 字
+      2.6k 字
     </span>
   
 
@@ -204,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      8 分钟
     </span>
   
 
@@ -236,8 +240,34 @@
             <h1 style="display: none">回溯&amp;剪枝</h1>
             
             <div class="markdown-body">
-              <p>背景：做题看</p>
-<p>解析时偶然遇到 weiwei，他解题方法和思路比较适合我，可能也适合大多数人 hhh….</p>
+              <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>做题看题解时偶然遇到 weiwei，他解题方法和思路比较适合我，可能也适合大多数人 hhh….下面附上他讲解回溯入门时的回答：</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/">https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/</a></p>
+<p>我做了其中的：</p>
+<ul>
+<li>全排列(1&amp;2)</li>
+<li>组合总数(1&amp;2)</li>
+<li>子集(1&amp;2)</li>
+</ul>
+<p>感觉有所收获，并在剪枝的题目代码注释部分感叹道：美哉美哉</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)&#123;<br>            <span class="hljs-comment">//这句话在去重中起着很大的作用</span><br>            <span class="hljs-comment">//和下面的两句英文注释结合，美哉，美哉</span><br>            <span class="hljs-keyword">if</span>(i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>] &amp;&amp; !used[i - <span class="hljs-number">1</span>]) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span>(used[i] == <span class="hljs-keyword">true</span>) <span class="hljs-keyword">continue</span>;<br>            path.add(nums[i]);<br>            used[i] = <span class="hljs-keyword">true</span>;<span class="hljs-comment">//tell the next layer, nums[i] is being used;</span><br>            dfs(nums, len, path, ans, used);<br>            used[i] = <span class="hljs-keyword">false</span>;<span class="hljs-comment">//tell the rest-loop nums[i] can be used again;</span><br>            path.remove(path.size() - <span class="hljs-number">1</span>);<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<p>为了留着以后复习，或者是巩固知识，再或者是暂时性提高此时此刻的多巴胺水平，我有必要为回溯做一个初步的总结</p>
+<h2 id="何时使用回溯"><a href="#何时使用回溯" class="headerlink" title="何时使用回溯"></a>何时使用回溯</h2><h2 id="无重复元素问题"><a href="#无重复元素问题" class="headerlink" title="无重复元素问题"></a>无重复元素问题</h2><h3 id="全排列1"><a href="#全排列1" class="headerlink" title="全排列1"></a>全排列1</h3><p>题目描述</p>
+<p><img src="https://i.loli.net/2021/10/26/Smc196oWhuxrsVA.png" srcset="/img/loading.gif" lazyload alt="image-20211026152742449"></p>
+<p>由于元素无重复，我们只用考虑当前元素的位置而无需考虑其具体值，我仅以此题为代表画出递归树，其他题目自行脑补即可（好狂野）</p>
+<p><img src="https://i.loli.net/2021/10/26/rXAxaScuL3kqjRN.png" srcset="/img/loading.gif" lazyload alt="image-20211026155651854"></p>
+<p>我们需要额外定义一个元素是否被使用过的 boolean 数组来告知下一层 dfs 当前值是否可以继续被选用，</p>
+<p>同样的在回溯过程中，这个 boolean 数组必须被还原，因为当for 遍历至下一个子树时，这个元素时可以被继续使用的。</p>
+<p>代码如下（做完就感觉好简单）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permute(<span class="hljs-keyword">int</span>[] nums) &#123;<br>        <span class="hljs-keyword">int</span> len = nums.length;<br>        List&lt;List&lt;Integer&gt;&gt; ans = <span class="hljs-keyword">new</span> ArrayList();<br>        <span class="hljs-keyword">if</span>(len == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> ans;<br>        List&lt;Integer&gt; path = <span class="hljs-keyword">new</span> ArrayList();<br>        <span class="hljs-keyword">boolean</span>[] used = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[len];<br>        dfs(nums, len, path, ans, used);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> len, List&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; ans, <span class="hljs-keyword">boolean</span>[] used)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(path.size() == len)&#123;<br>            ans.add(<span class="hljs-keyword">new</span> ArrayList(path));<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)&#123;<br>            <span class="hljs-keyword">if</span>(used[i] == <span class="hljs-keyword">true</span>) <span class="hljs-keyword">continue</span>;<br>            path.add(nums[i]);<br>            used[i] = <span class="hljs-keyword">true</span>;<br>            dfs(nums, len, path, ans, used);<br>            path.remove(path.size() - <span class="hljs-number">1</span>);<br>            used[i] = <span class="hljs-keyword">false</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="有重复元素问题"><a href="#有重复元素问题" class="headerlink" title="有重复元素问题"></a>有重复元素问题</h2><h3 id="全排列2"><a href="#全排列2" class="headerlink" title="全排列2"></a>全排列2</h3><p><img src="https://i.loli.net/2021/10/26/OYVCNKU4F3MpHzf.png" srcset="/img/loading.gif" lazyload alt="image-20211026155605823"></p>
+<p>由于含有重复元素，就没办法再用上面简单的递归回溯来解决，但是我们也很容易发现使用上面的方法时不考虑元素位置的，重复元素回被创建一个一摸一样的子树，把这个子树（树枝）去掉就是剪枝过程，为了保证结果的唯一和方便找到重复元素，我们必须对数组进行排序。</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permuteUnique(<span class="hljs-keyword">int</span>[] nums) &#123;<br>        <span class="hljs-keyword">int</span> len = nums.length;<br>        List&lt;List&lt;Integer&gt;&gt; ans = <span class="hljs-keyword">new</span> ArrayList();<br>        <span class="hljs-keyword">if</span>(len == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> ans;<br>        List&lt;Integer&gt; path = <span class="hljs-keyword">new</span> ArrayList();<br>        <span class="hljs-keyword">boolean</span>[] used = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[len];<br>        Arrays.sort(nums);<br>        dfs(nums, len, path, ans, used);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> len, List&lt;Integer&gt; path, List&lt;List&lt;Integer&gt;&gt; ans, <span class="hljs-keyword">boolean</span>[] used)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(path.size() == len)&#123;<br>            ans.add(<span class="hljs-keyword">new</span> ArrayList(path));<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)&#123;<br>            <span class="hljs-comment">//这句话在去重中起着很大的作用</span><br>            <span class="hljs-comment">//和下面的两句英文注释结合，美哉，美哉</span><br>            <span class="hljs-keyword">if</span>(i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>] &amp;&amp; !used[i - <span class="hljs-number">1</span>]) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span>(used[i] == <span class="hljs-keyword">true</span>) <span class="hljs-keyword">continue</span>;<br>            path.add(nums[i]);<br>            used[i] = <span class="hljs-keyword">true</span>;<span class="hljs-comment">//tell the next layer, nums[i] is being used;</span><br>            dfs(nums, len, path, ans, used);<br>            used[i] = <span class="hljs-keyword">false</span>;<span class="hljs-comment">//tell the rest-loop nums[i] can be used again;</span><br>            path.remove(path.size() - <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>其实一切都很好理解，除了 !used[i - 1] </p>
+<p>如果把 &amp;&amp;!used[i - 1] 去掉的话，会导致结果为空，以为误判而 continue 了，剪枝剪掉 nums[i] == nums[i - 1] 的枝只能是<strong>被 dfs 完被重新置为false</strong>的元素。</p>
 
             </div>
             <hr>
@@ -257,6 +287,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/10/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">多线程面试题</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

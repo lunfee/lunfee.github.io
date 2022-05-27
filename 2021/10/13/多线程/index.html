@@ -33,8 +33,24 @@
 <meta property="og:image" content="https://i.loli.net/2021/10/21/i3pkemhWc6UvSBr.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/21/UhMp4cRNVS9GPmK.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/22/yuk689JfSLjoZHQ.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/QqCSJovO6lYH9M1.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/4XcRW9YM2HnqhNd.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/kw2Ba9CFgPN7e5I.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/26/veagyW1wuk96cBR.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/JLylFwE6x9CcdAO.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/pjUTdcbWhK3BMX5.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/ehVdGRADZjH9z5q.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/IMhomG3LBekjc5S.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/qPMEjQ2avJTupF1.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/UK9b4H3DPiFORJ1.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/IunVNWvgOSQ84GK.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/oUxETYavhMntzjb.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/4UGmjap1d6WTRNi.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/hcVI5FkHY1KeAzf.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/u2YUwZ8SWhyjoQP.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/01/g5ia1H9O8EdolAR.png">
 <meta property="article:published_time" content="2021-10-13T12:31:00.000Z">
-<meta property="article:modified_time" content="2021-10-25T07:59:43.647Z">
+<meta property="article:modified_time" content="2021-11-01T09:39:02.083Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="线程">
 <meta property="article:tag" content="并发">
@@ -208,7 +224,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8.4k 字
+      13k 字
     </span>
   
 
@@ -217,7 +233,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      26 分钟
+      40 分钟
     </span>
   
 
@@ -438,7 +454,7 @@
 <li>当 CPU 时间片用完，会从【运行状态】转换至【可运行状态】，会导致线程的上下文切换</li>
 </ul>
 </li>
-<li>【阻塞状态】<ul>
+<li>【阻塞状态】 <ul>
 <li>如果调用了阻塞 API，如 BIO 读写文件，这时该线程实际不会用到 CPU，会导致线程上下文切换，进入 【阻塞状态】</li>
 <li>等 BIO 操作完毕，会由操作系统唤醒阻塞的线程，转换至【可运行状态】</li>
 <li>与【可运行状态】的区别是，对【阻塞状态】的线程来说只要它们一直不唤醒，调度器就一直不会考虑调度它们</li>
@@ -454,6 +470,176 @@
 <li><strong>BLOCKED ， WAITING ， TIMED_WAITING</strong> 都是 <strong>Java API 层面</strong>对【阻塞状态】的细分，如sleep就位TIMED_WAITING， join为WAITING状态。后面会在状态转换一节详述。</li>
 <li><strong>TERMINATED</strong> 当线程代码运行结束</li>
 </ul>
+<h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><p>共享带来的问题</p>
+<p>(1)临界区 Critical Section</p>
+<ul>
+<li>一个程序运行多个线程本身是没有问题的</li>
+<li>问题出在多个线程访问共享资源<ul>
+<li>多个线程读共享资源其实也没有问题</li>
+<li>在多个线程对共享资源读写操作时发生指令交错，就会出现问题</li>
+</ul>
+</li>
+<li>一段代码块内如果存在对共享资源的多线程读写操作，称这段代码块为<strong>临界区</strong><br>例如，下面代码中的临界区</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> counter = <span class="hljs-number">0</span>;<br> <br><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">increment</span><span class="hljs-params">()</span> </span><br><span class="hljs-function"><span class="hljs-comment">// 临界区 </span></span><br><span class="hljs-function"></span>&#123;   <br>    counter++; <br>&#125;<br> <br><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">decrement</span><span class="hljs-params">()</span> </span><br><span class="hljs-function"><span class="hljs-comment">// 临界区 </span></span><br><span class="hljs-function"></span>&#123; <br>    counter--; <br>&#125;Copy<br></code></pre></td></tr></table></figure>
+
+<p><strong>(2)竞态条件 Race Condition</strong></p>
+<p>多个线程在<strong>临界区</strong>内执行，由于代码的执行序列不同而导致结果无法预测，称之为发生了<strong>竞态条件</strong></p>
+<p>为了避免临界区的竞态条件发生，有多种手段可以达到目的。</p>
+<ul>
+<li>阻塞式的解决方案：synchronized，Lock</li>
+<li>非阻塞式的解决方案：原子变量</li>
+</ul>
+<h3 id="对象锁synchronized"><a href="#对象锁synchronized" class="headerlink" title="对象锁synchronized"></a>对象锁synchronized</h3><p><strong>synchronized</strong>，即俗称的<strong>【对象锁】</strong>，它采用互斥的方式让同一 时刻至多只有一个线程能持有【对象锁】，其它线程再想获取这个【对象锁】时就会阻塞住(blocked)。这样就能保证临界区内的代码的原子性，不用担心线程上下文切换，即使所持有者因为CPU上线文切换被BLOCKED，其他线程也无法拿到锁。</p>
+<h4 id="synchronized语法"><a href="#synchronized语法" class="headerlink" title="synchronized语法"></a>synchronized语法</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">synchronized</span><span class="hljs-params">(对象)</span></span> &#123;<br>	<span class="hljs-comment">//临界区内的所有代码作为原子性操作的一个整体</span><br>&#125;Copy<br></code></pre></td></tr></table></figure>
+
+<p>例：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> counter = <span class="hljs-number">0</span>; <br><span class="hljs-comment">//创建一个公共对象，作为对象锁的对象</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">Object</span> room = <span class="hljs-keyword">new</span> <span class="hljs-keyword">Object</span>();<br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) <span class="hljs-keyword">throws</span> InterruptedException &#123;    <br>	Thread t1 = <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;        <br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5000</span>; i++) &#123;            <br>        <span class="hljs-keyword">synchronized</span> (room) &#123;     <br>        counter++;            <br>       	 &#125;       <br> 	   &#125;    <br>    &#125;, <span class="hljs-string">&quot;t1&quot;</span>);<br> <br>    Thread t2 = <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;       <br>        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5000</span>; i++) &#123;         <br>            <span class="hljs-keyword">synchronized</span> (room) &#123;            <br>            counter--;          <br>            &#125;    <br>        &#125; <br>    &#125;, <span class="hljs-string">&quot;t2&quot;</span>);<br> <br>    t1.start();    <br>    t2.start(); <br>    t1.<span class="hljs-built_in">join</span>();   <br>    t2.<span class="hljs-built_in">join</span>();    <br>    <span class="hljs-built_in">log</span>.debug(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,counter); <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="synchronized加在方法上"><a href="#synchronized加在方法上" class="headerlink" title="synchronized加在方法上"></a>synchronized加在方法上</h4><ul>
+<li><p>加在成员方法上</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> </span>&#123;<br>	<span class="hljs-comment">//在方法上加上synchronized关键字</span><br>	<span class="hljs-keyword">public</span> synchronized <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span> &#123;<br>	<br>	&#125;<br>	<span class="hljs-comment">//等价于</span><br>	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span> &#123;<br>		<span class="hljs-function"><span class="hljs-title">synchronized</span>(<span class="hljs-params"><span class="hljs-built_in">this</span></span>)</span> &#123;<br>		<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>加在静态方法上</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> </span>&#123;<br>	<span class="hljs-comment">//在静态方法上加上synchronized关键字</span><br>	<span class="hljs-keyword">public</span> synchronized <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span> &#123;<br>	<br>	&#125;<br>	<span class="hljs-comment">//等价于</span><br>	<span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span> &#123;<br>		<span class="hljs-function"><span class="hljs-title">synchronized</span>(<span class="hljs-params">Demo.<span class="hljs-keyword">class</span></span>)</span> &#123;<br>		<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="https://i.loli.net/2021/10/26/QqCSJovO6lYH9M1.png" srcset="/img/loading.gif" lazyload alt="image-20211026205407518"></p>
+<p>对于未加锁的线程，由于在对临界区代码进行操作时不会尝试获取对象锁，也不会有被阻塞的可能，就无法保证线程共享数据的安全</p>
+<h4 id="变量的线程安全分析"><a href="#变量的线程安全分析" class="headerlink" title="变量的线程安全分析"></a>变量的线程安全分析</h4><p>刚好学完JVM这一块的知识，其实变量是否安全主要看变量被放在什么内存的什么区域，是否线程共享</p>
+<p>实例变量和静态变量（都是成员变量）是否线程安全？</p>
+<ul>
+<li>如果它们没有共享，则线程安全</li>
+<li>如果它们被共享了，根据它们的状态是否能够改变，又分两种情况<ul>
+<li>如果只有读操作，则线程安全</li>
+<li>如果有读写操作，则这段代码是临界区，需要考虑线程安全（多线程时，不同线程的方法可能会发生线程不安全的情况）</li>
+</ul>
+</li>
+</ul>
+<p>局部变量是否线程安全？</p>
+<ul>
+<li><p>局部变量是线程安全的（创建的对象保存在栈帧中）</p>
+</li>
+<li><p>但局部变量引用的对象则未必 （要看该对象是否被共享且被执行了读写操作）</p>
+<ul>
+<li>如果该对象没有逃离方法的作用范围，它是线程安全的</li>
+<li>如果该对象逃离方法的作用范围，需要考虑线程安全</li>
+</ul>
+</li>
+<li><p>局部变量是线程安全的——每个方法都在对应线程的栈中创建栈帧，不会被其他线程共享</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144636.png"><img src="https://i.loli.net/2021/10/26/4XcRW9YM2HnqhNd.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li>如果调用的对象被共享，且执行了读写操作，则<strong>线程不安全</strong></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144649.png"><img src="https://i.loli.net/2021/10/26/kw2Ba9CFgPN7e5I.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li>如果是局部变量，则会在堆中创建对应的对象，不会存在线程安全问题。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144702.png"><img src="https://i.loli.net/2021/10/26/veagyW1wuk96cBR.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<h3 id="常见线程安全类"><a href="#常见线程安全类" class="headerlink" title="常见线程安全类"></a>常见线程安全类</h3><ul>
+<li>String</li>
+<li>Integer</li>
+<li>StringBuﬀer</li>
+<li>Random</li>
+<li>Vector （List的线程安全实现类）</li>
+<li>Hashtable （Hash的线程安全实现类）</li>
+<li>java.util.concurrent 包下的类</li>
+</ul>
+<p>这里说它们是线程安全的是指，多个线程调用它们<strong>同一个实例的某个方法时</strong>，是线程安全的</p>
+<ul>
+<li>它们的每个方法是原子的（都被加上了synchronized）</li>
+<li>但注意它们<strong>多个方法的组合不是原子的</strong>，所以可能会出现线程安全问题</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144903.png"><img src="https://i.loli.net/2021/11/01/JLylFwE6x9CcdAO.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<h3 id="不可变类线程安全性"><a href="#不可变类线程安全性" class="headerlink" title="不可变类线程安全性"></a>不可变类线程安全性</h3><p>String、Integer 等都是<strong>不可变类</strong>，因为其内部的状态不可以改变，因此它们的方法都是线程安全的</p>
+<p>有同学或许有疑问，String 有 replace，substring 等方法【可以】改变值啊，那么这些方法又是如何保证线程安 全的呢？</p>
+<p>这是因为这些方法的返回值都<strong>创建了一个新的对象</strong>，而不是直接改变String、Integer对象本身。</p>
+<h3 id="Monitor（锁）"><a href="#Monitor（锁）" class="headerlink" title="Monitor（锁）"></a>Monitor（锁）</h3><p>monitor是操作系统的</p>
+<h4 id="原理之Monitor"><a href="#原理之Monitor" class="headerlink" title="原理之Monitor"></a>原理之Monitor</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144917.png"><img src="https://i.loli.net/2021/11/01/pjUTdcbWhK3BMX5.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li>当线程执行到临界区代码时，如果使用了synchronized，会先查询synchronized中所指定的对象(obj)<strong>是否绑定了Monitor</strong>。<ul>
+<li>如果<strong>没有绑定</strong>，则会先去与Monitor绑定，并且将Owner设为当前线程。</li>
+<li>如果已经绑定，则会去查询该Monitor是否已经有了Owner<ul>
+<li>如果没有，则Owner与将当前线程绑定</li>
+<li>如果有，则放入EntryList，进入阻塞状态(blocked)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当Monitor的Owner将临界区中代码执行完毕后，Owner便会被清空，此时EntryList中处于<strong>阻塞</strong>状态的线程会被<strong>叫醒并竞争</strong>，此时的竞争是<strong>非公平的</strong></li>
+<li><strong>注意</strong>：<ul>
+<li>对象在使用了synchronized后与Monitor绑定时，会将对象头中的<strong>Mark Word</strong>置为Monitor指针。</li>
+<li>每个对象都会绑定一个<strong>唯一的Monitor</strong>，如果synchronized中所指定的对象(obj)<strong>不同</strong>，则会绑定<strong>不同</strong>的Monitor</li>
+</ul>
+</li>
+</ul>
+<h3 id="Synchronized原理进阶"><a href="#Synchronized原理进阶" class="headerlink" title="Synchronized原理进阶"></a>Synchronized原理进阶</h3><h4 id="对象头格式"><a href="#对象头格式" class="headerlink" title="对象头格式"></a>对象头格式</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144926.png"><img src="https://i.loli.net/2021/11/01/ehVdGRADZjH9z5q.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<h4 id="1-轻量级锁（用于优化Monitor这类的重量级锁）"><a href="#1-轻量级锁（用于优化Monitor这类的重量级锁）" class="headerlink" title="(1)轻量级锁（用于优化Monitor这类的重量级锁）"></a>(1)轻量级锁（用于优化Monitor这类的重量级锁）</h4><p><strong>轻量级锁使用场景：</strong>当一个对象被多个线程所访问，但访问的时间是<strong>错开的（不存在竞争）</strong>，此时就可以使用<strong>轻量级锁</strong>来优化。</p>
+<ul>
+<li><p>创建<strong>锁记录</strong>（Lock Record）对象，每个线程的栈帧都会包含一个锁记录对象，内部可以存储锁定对象的mark word（不再一开始就使用Monitor）</p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144942.png"><img src="https://i.loli.net/2021/11/01/IMhomG3LBekjc5S.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+</li>
+<li><p>让锁记录中的Object reference指向锁对象（Object），并尝试用cas去替换Object中的mark word，将此mark word放入lock record中保存</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144950.png"><img src="https://i.loli.net/2021/11/01/qPMEjQ2avJTupF1.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li>如果cas替换成功，则将Object的对象头替换为<strong>锁记录的地址</strong>和<strong>状态 00（轻量级锁状态）</strong>，并由该线程给对象加锁</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608144957.png"><img src="https://i.loli.net/2021/11/01/UK9b4H3DPiFORJ1.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<h4 id="2-锁膨胀"><a href="#2-锁膨胀" class="headerlink" title="(2)锁膨胀"></a>(2)锁膨胀</h4><ul>
+<li>如果一个线程在给一个对象加轻量级锁时，<strong>cas替换操作失败</strong>（因为此时其他线程已经给对象加了轻量级锁），此时该线程就会进入<strong>锁膨胀</strong>过程</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608145004.png"><img src="https://i.loli.net/2021/11/01/IunVNWvgOSQ84GK.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li><p>此时便会给对象加上重量级锁（使用Monitor）</p>
+<ul>
+<li><p>将对象头的Mark Word改为Monitor的地址，并且状态改为01(重量级锁)</p>
+</li>
+<li><p>并且该线程放入入EntryList中，并进入阻塞状态(blocked)</p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608145148.png"><img src="https://i.loli.net/2021/11/01/oUxETYavhMntzjb.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-自旋优化"><a href="#3-自旋优化" class="headerlink" title="(3)自旋优化"></a>(3)自旋优化</h4><p><strong>重量级锁</strong>竞争时，还可以使用自选来优化，如果当前线程在<strong>自旋成功</strong>（使用锁的线程退出了同步块，<strong>释放了锁</strong>），这时就可以避免线程进入阻塞状态（减少了上下文切换的次数）。</p>
+<ul>
+<li>第一种情况</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608145136.png"><img src="https://i.loli.net/2021/11/01/4UGmjap1d6WTRNi.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li>第二种情况</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608145125.png"><img src="https://i.loli.net/2021/11/01/hcVI5FkHY1KeAzf.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<h4 id="4-偏向锁-用于优化轻量级锁重入"><a href="#4-偏向锁-用于优化轻量级锁重入" class="headerlink" title="(4)偏向锁(用于优化轻量级锁重入)"></a>(4)偏向锁(用于优化轻量级锁重入)</h4><p>轻量级锁在没有竞争时，每次<strong>重入</strong>（该线程执行的方法中再次锁住该对象）操作仍需要cas替换操作，这样是会使性能降低的。</p>
+<p>所以引入了<strong>偏向锁</strong>对性能进行优化：在<strong>第一次</strong>cas时会将<strong>线程的ID</strong>写入对象的Mark Word中。此后发现这个线程ID就是自己的，就表示没有竞争，就不需要再次cas，以后只要不发生竞争，这个对象就归该线程所有。</p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608145109.png"><img src="https://i.loli.net/2021/11/01/u2YUwZ8SWhyjoQP.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<h5 id="偏向状态"><a href="#偏向状态" class="headerlink" title="偏向状态"></a>偏向状态</h5><ul>
+<li>Normal：一般状态，没有加任何锁，前面62位保存的是对象的信息，<strong>最后2位为状态（01），倒数第三位表示是否使用偏向锁（未使用：0）</strong></li>
+<li>Biased：偏向状态，使用偏向锁，前面54位保存的当前线程的ID，<strong>最后2位为状态（01），倒数第三位表示是否使用偏向锁（使用：1）</strong></li>
+<li>Lightweight：使用轻量级锁，前62位保存的是锁记录的指针，<strong>最后两位为状态（00）</strong></li>
+<li>Heavyweight：使用重量级锁，前62位保存的是Monitor的地址指针，<strong>后两位为状态(10)</strong></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608145101.png"><img src="https://i.loli.net/2021/11/01/g5ia1H9O8EdolAR.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
+<ul>
+<li>如果开启了偏向锁（默认开启），在创建对象时，对象的Mark Word后三位应该是101</li>
+<li>但是偏向锁默认是<strong>有延迟</strong>的，不会再程序一启动就生效，而是会在程序运行一段时间（几秒之后），才会对创建的对象设置为偏向状态</li>
+<li>如果没有开启偏向锁，对象的Mark Word后三位应该是001</li>
+</ul>
+<h5 id="撤销偏向"><a href="#撤销偏向" class="headerlink" title="撤销偏向"></a>撤销偏向</h5><p>以下几种情况会使对象的偏向锁失效</p>
+<ul>
+<li>调用对象的hashCode方法</li>
+<li>多个线程使用该对象</li>
+<li><strong>调用了wait/notify方法</strong>（调用wait方法会导致锁膨胀而使用<strong>重量级锁</strong>）</li>
+</ul>
+<h4 id="5-批量重偏向"><a href="#5-批量重偏向" class="headerlink" title="(5)批量重偏向"></a>(5)批量重偏向</h4><ul>
+<li>如果对象虽然被多个线程访问，但是线程间不存在竞争，这时偏向T1的对象仍有机会重新偏向T2<ul>
+<li>重偏向会重置Thread ID</li>
+</ul>
+</li>
+<li>当撤销超过20次后（超过阈值），JVM会觉得是不是偏向错了，这时会在给对象加锁时，重新偏向至加锁线程。</li>
+</ul>
+<h4 id="6-批量撤销"><a href="#6-批量撤销" class="headerlink" title="(6)批量撤销"></a>(6)批量撤销</h4><p>当撤销偏向锁的阈值超过40以后，就会将<strong>整个类的对象都改为不可偏向的</strong></p>
 
             </div>
             <hr>

@@ -18,7 +18,7 @@
   <meta name="keywords" content="">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Lunfee&#39;s Blog">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="Lunfee&#39;s Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -187,69 +187,33 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/05/20/chao/java%E5%9F%BA%E7%A1%80/" target="_self">
-          
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/23/Mybatis%E4%B8%8EJDBC/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="Mybatis与JDBC">
         </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/05/20/chao/java%E5%9F%BA%E7%A1%80/" target="_self">
-          
-          
-            
-          
-          Java基础String，StringBuider，StringBufferString 的 “+” ：创建一个新对象，改变指针
-SB append   ：调整 char 型数组长度，原地拼接
-
-底层都是使用 char 型数组实现的，只不过 String 使用 final 修饰，StringBuffer 没有
-
-不可变性，拼接效率
-线程安全性，
-
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-20 23:15" pubdate>
-              2022-05-20
-            </time>
-          </div>
-        
-        
-        
       </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
     
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/05/03/chao/Main/" target="_self">
-          
+        <a href="/2021/09/23/Mybatis%E4%B8%8EJDBC/" target="_self">
+          Mybatis与JDBC
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/05/03/chao/Main/" target="_self">
+        <a href="/2021/09/23/Mybatis%E4%B8%8EJDBC/" target="_self">
           
           
             
           
-          AQS &amp; ReentrantLockAQS概念 
-ReentrantLock
-ThreadLocaldemo
-123456789101112public class YesThreadLocal &#123;	    private static final ThreadLocal&lt;String&gt; threadLocalName = ThreadLocal.withIniti
+          Mybatis与JDBCJDBCJDBC，Java Database Connectivity，舰名思意，Java数据库连接，一般操作的步骤如下：
+1，根据四要素（Driver-Class，url，username，password）获得连接，
+2，编写sql语句，
+3，获取preparedStatement，预编译sql语句，
+4，获取并处理结果集
+5，关闭资源
+使用第三方数据库连接池时需要配置
         </a>
       </p>
 
@@ -257,299 +221,8 @@ ThreadLocaldemo
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-03 17:34" pubdate>
-              2022-05-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/29/re/%E7%BD%91%E7%BB%9Cio/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/29/re/%E7%BD%91%E7%BB%9Cio/" target="_self">
-          
-          
-            
-          
-          I/O到底是什么?I/O 其实就是 input 和 output 的缩写，即输入/输出。
-那输入输出啥呢？
-比如我们用键盘来敲代码其实就是输入，那显示器显示图案就是输出，这其实就是 I/O。
-而我们时常关心的磁盘 I/O 指的是硬盘和内存之间的输入输出。
-读取本地文件的时候，要将磁盘的数据拷贝到内存中，修改本地文件的时候，需要把修改后的数据拷贝到磁盘中。
-网络 I/O 指的是网卡与内存之间的输入输
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-29 22:04" pubdate>
-              2022-03-29
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/29/re/mysql/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/29/re/mysql/" target="_self">
-          
-          
-            
-          
-          175. 组合两个表 
-12345select  firstName, lastName, city, statefrom person left join addresson Person.personId = Address.personId;
-
- 
-176. 第二高的薪水 
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-29 13:31" pubdate>
-              2022-03-29
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/17/re/linux/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/17/re/linux/" target="_self">
-          
-          
-            
-          
-          netstat -tunlp |grep 8080  查看某个端口的进程信息 
-pid: process ID
-ppid: parent proessID
-jps: 显示HotSpot虚拟机的所有进程pid
-ps -ef
-tail -10 log
-tail -f 
-head -10 log
-stat log 查看文件inode信息
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-17 10:07" pubdate>
-              2022-03-17
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/08/re/%E5%BF%AB%E6%89%8B%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/08/re/%E5%BF%AB%E6%89%8B%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" target="_self">
-          
-          
-            
-          
-          
-数据结构在面试中占比约30
-
-
-知道哪些数据结构以及他们的特点
-
-存储结构
-
-数组（Array）：数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。
-链表（Linked List）：链表是一种数据元素按照链式存储结构进行存储的数据结构，这种存储结构具有在物理上存在非连续的特点。
-
-逻辑结构
-
-栈（Stack）：栈是一种特殊的线性表，它只能在一个表的一个固定端进行数据结点
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-08 15:29" pubdate>
-              2022-03-08
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/06/re/java%E9%94%81/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/06/re/java%E9%94%81/" target="_self">
-          
-          
-            
-          
-          由单例模式深入 Java 锁单例模式下面的代码是一段经典的饿汉式的单例模式写法
-1234567891011121314151617181920package javal;/** * @author lunfee * @create 2022/3/6-14:53 *///懒汉式单例模式public class Singleton &#123;    private static volatile S
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-06 14:49" pubdate>
-              2022-03-06
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/23/Maven/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/23/Maven/" target="_self">
-          
-          
-            
-          
-          Maven
-用了这么久maven，理解仅限制在自动导入JAR包上，打算写一篇博客记录下maven更深层次的东西
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-23 19:51" pubdate>
-              2021-12-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/25/gulimall/" target="_self">
-          
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/25/gulimall/" target="_self">
-          
-          
-            
-          
-          gulimall技术与配置
-nacos服务发现
-
-common 模块导入 nacos 服务发现依赖
-1234&lt;dependency&gt;    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artif
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 20:48" pubdate>
-              2021-11-25
+            <time datetime="2021-09-23 19:41" pubdate>
+              2021-09-23
             </time>
           </div>
         
@@ -563,28 +236,127 @@ common 模块导入 nacos 服务发现依赖
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" target="_self">
-          <img src="/img/cs_interview.jpg" srcset="/img/loading.gif" lazyload alt="计算机原理面试题">
+        <a href="/2021/09/20/SpringMVC/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="SpringMVC">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" target="_self">
-          计算机原理面试题
+        <a href="/2021/09/20/SpringMVC/" target="_self">
+          SpringMVC
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/" target="_self">
+        <a href="/2021/09/20/SpringMVC/" target="_self">
           
           
             
           
-          
-电脑为什么可以运行大于电脑内存的程序
+          SpringMVC原理SpringMVC架构：所有的WEB MVC框架都是这么设计的：一个中央Servlet程序，用于把请求分发到相应的控制器，实现业务逻辑与跳转。由于SpringMVC整合了Spring IoC容器，所以它具有Spring的所有功能。Spring的Servlet的实现类是DispatcherServlet，具有更强大的功能。
+DispatcherServlet：
 
+
+
+浏览器访问
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-20 19:41" pubdate>
+              2021-09-20
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/19/Springboot%20Mybaits%20%E6%95%B4%E5%90%88%E8%AE%B0%E5%BD%95/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="SpringBoot-Mybatis">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/19/Springboot%20Mybaits%20%E6%95%B4%E5%90%88%E8%AE%B0%E5%BD%95/" target="_self">
+          SpringBoot-Mybatis
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/19/Springboot%20Mybaits%20%E6%95%B4%E5%90%88%E8%AE%B0%E5%BD%95/" target="_self">
+          
+          
+            
+          
+          Springboot Mybaits 整合记录新建项目，添加组件
+导入maven依赖
+123456&lt;!-- 引入mybatis--&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;            &lt;artifactId&gt;mybati
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-19 19:41" pubdate>
+              2021-09-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SpringBoot/">SpringBoot</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/19/Springboot%20%E4%B8%AD,%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="SpringBoot">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/19/Springboot%20%E4%B8%AD,%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          SpringBoot
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/19/Springboot%20%E4%B8%AD,%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          
+          
+            
+          
+          Springboot 中/**,/和/*的区别Springboot 中经常使用拦截器，过滤器处理掉一部分请求操作，在设置拦截域的时候使用/**,/和/*拦截的效果是不同的
+/**：拦截所有文件，包括文件夹下的子文件夹，包括静态资源，因此在拦截的时候需要放行如.css文件等的静态资源
+/*：拦截该文件夹下所有的文件路径，不包含子文件夹，包涵页面。
+/：拦截该文件夹下的所有文件路径，不包含页面
 
         </a>
       </p>
@@ -593,8 +365,259 @@ common 模块导入 nacos 服务发现依赖
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-01 18:27" pubdate>
-              2021-11-01
+            <time datetime="2021-09-19 19:41" pubdate>
+              2021-09-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/">/*</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/16/%E5%A5%BD%E5%BA%B7%E7%9A%84/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="好康的">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/16/%E5%A5%BD%E5%BA%B7%E7%9A%84/" target="_self">
+          好康的
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/16/%E5%A5%BD%E5%BA%B7%E7%9A%84/" target="_self">
+          
+          
+            
+          
+          好康的关于==和.equals()的区别其实很多人对于这个问题的答案可能就是一句简单的：双=号比较的是在堆内存中的地址值，equals()方法比较的是内容值。但是面试官要听的可不是这句话，或者他一定会问更深，更底层的问题，这里面牵扯了很多底层的计算机或者Java虚拟机的内容，下面先浅显的做一个梳理，后面有机会的话再修改补充。
+题外话内存作为一个存储数据的存在， 有一个很重要的特性， 就是内存里的数
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-16 19:41" pubdate>
+              2021-09-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/equals/">equals</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/14/%E6%9D%82%E8%B0%88/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="杂谈">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/14/%E6%9D%82%E8%B0%88/" target="_self">
+          杂谈
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/14/%E6%9D%82%E8%B0%88/" target="_self">
+          
+          
+            
+          
+          杂谈关于Spring“自动”这件事下面说的三种时期亦或是三种方式，知识入口不同而已，容器底层启动的过程是一样的，方式有早期和主流之分，但在开发中多是灵活搭配的，例如早期的代码融入新技术实现的代码（Import）。
+1.XML配置时期最开始使用Spring的时候，也是早期主流的使用方式，我们需要在beans.xml中创建标签，并在子标签中对相应属性进行赋值，常用的方式有：
+传值三种方式：按参数索引，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-14 19:41" pubdate>
+              2021-09-14
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%85%B3%E4%BA%8ESpring%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/">关于Spring的一些理解</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/11/session,cookie,request%E5%9F%9F/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="Session,Cookie,Request">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/11/session,cookie,request%E5%9F%9F/" target="_self">
+          Session,Cookie,Request
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/11/session,cookie,request%E5%9F%9F/" target="_self">
+          
+          
+            
+          
+          session,cookie,request域他们的作用都是保存页面的信息，
+sessi0n用于存放不同页面的公共信息，比如登录信息，比如在商品页面添加到心愿单的商品，在跳转到购物车页面的时候任然可以获取到；
+作用域：session 的作用域是一个会话
+原理：用户发送一个请求访问到 Servlet，在服务器上找一块内存，实际上是一个键值对，前面是 String name，后面是Object val
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-11 19:41" pubdate>
+              2021-09-11
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%9F%9F/">域</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/11/Thymeleaf/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="Thymeleaf">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/11/Thymeleaf/" target="_self">
+          Thymeleaf
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/11/Thymeleaf/" target="_self">
+          
+          
+            
+          
+          Thymeleaf 
+Thymeleaf 自动配置里面添加了默认的前后缀
+123public static final String DEFAULT_PREFIX = &quot;classpath:/templates/&quot;;public static final String DEFAULT_SUFFIX = &quot;.html&quot;;
+
+
+
+12th:action=&quo
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-11 19:41" pubdate>
+              2021-09-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          <img src="/img/example.jpg" srcset="/img/loading.gif" lazyload alt="关于请求转发">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          关于请求转发
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/11/%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%EF%BC%8C%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" target="_self">
+          
+          
+            
+          
+          请求转发，刷新页面在页面的跳转中，如果使用return”页面名”，默认走的是请求转发。
+1234567891011@Controllerpublic class IndexController &#123;    @GetMapping(&#123;&quot;/login&quot;,&quot;/&quot;&#125;)    public String getLoginPage()&#12
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-11 19:41" pubdate>
+              2021-09-11
             </time>
           </div>
         
@@ -608,7 +631,7 @@ common 模块导入 nacos 服务发现依赖
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span>
     </span>
   </nav>
 
